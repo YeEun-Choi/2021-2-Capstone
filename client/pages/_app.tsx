@@ -1,4 +1,4 @@
-// import Container from '../component/layout/index'
+import Container from '../components/layout/index'
 
 function MyApp({ Component, pageProps }) {
   return (
