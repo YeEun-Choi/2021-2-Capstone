@@ -1,2 +1,13 @@
-## 2021년도 2학기 캡스톤디자인 
-### 201930133 최예은
+## 2048 web game
+**2021학년도 2학기 졸업작품**
+
+
+**사용 언어**
+ - NEXT.js
+ - React
+ - Typescript
+
+**Develop**
+- `npm run client `
+- localhost:8084
+
