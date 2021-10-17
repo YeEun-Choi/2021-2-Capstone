@@ -4,7 +4,6 @@ import Container from '../../client/components/layout'
 import * as UI from '@mui/material'
 import { Game } from '../components/Game';
 import fetcher from "../fetcher"
-import FormModal from '../components/score/modal';
 import Score from '../components/score';
 
 const Home = () => {
@@ -96,7 +95,7 @@ const Home = () => {
                                 점수 : {score}
                             </UI.Typography>
 
-                            <Button text={'점수 기록'} onClick={handleOpen} />
+                            {/* <Button text={'점수 기록'} onClick={handleOpen} /> */}
                         </UI.Box>
                         <UI.Box sx={{
                             transform: 'translateX(-50px)',
@@ -108,8 +107,7 @@ const Home = () => {
                     </UI.Box>
                 </UI.Grid>
                 <UI.Grid item xs={6}>
-                    <Score />
-
+                    <Score score={score} />
                 </UI.Grid>
             </UI.Grid>
         </Container >

@@ -12,7 +12,18 @@ const Container = ({ children }) => {
             // pt: 5
         }}>
             {children}
-        </UI.Box>
+            <UI.Box sx={{
+                transform: 'scaleX(-1)',
+                position: 'absolute',
+                right: 0,
+                bottom: 0,
+                '& img': {
+                    width: '60%',
+                }
+            }}>
+                <img src="/img/bgTree.png" alt="" />
+            </UI.Box>
+        </UI.Box >
     )
 }
 
