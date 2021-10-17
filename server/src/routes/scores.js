@@ -1,46 +1,30 @@
-import { readDB, writeDB } from "../dbController.js";
-import { v4 } from 'uuid';
-
-const getScores = () => readDB('scores');
-const setScores = (data) => writeDB('scores', data)
+import { readDB, writeDB } from "../dbController.js"
+import { v4 } from 'uuid'
 
 const scoresRoute = [
     {
-        method: 'get', //get
-        route: '/scores',
+        method: 'get', // get
+        routes: '/scores',
         handler: (req, res) => {
-            const score = getScores();
-
-            res.send(score);
+            const scores = readDB('scores');
+            res.send(scores)
         }
     },
     {
-        method: 'post', //create
-        route: '/scores',
+        method: 'post', // create
+        routes: '/scores',
         handler: ({ body }, res) => {
-            try {
-                const typeScore = body.score;
-                if (typeScore !== "number") throw Error('score type error')
-
-                const scores = getScores();
-                const newScores = {
-                    id: v4(),
-                    score: Number(body.score),
-                    nickName: body.nickName,
-                    timestamp: Date.now()
-                }
-
-                scores.unshift(newScores);
-                setScores(scores)
-                res.send(newScores)
-
-            } catch (err) {
-                res.status(500).send({ error: err });
-                // 500 : Internal Server Error
-                // 404 : Not Found
+            const scores = readDB('scores');
+            const newScore = {
+                id: v4(),
+                timestamp: new Date(),
+                nickname: body.nickname,
+                score: body.score
             }
+            scores.unshift(newScore);
+            writeDB('scores', scores)
+            res.send(newScore)
         }
     }
 ]
-
 export default scoresRoute;

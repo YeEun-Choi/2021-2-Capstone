@@ -5,7 +5,10 @@ import { useThrottledCallback } from "use-debounce";
 import { useGame } from "./hooks/useGame";
 import { Board, animationDuration, tileCount } from "../Board";
 
-export const Game = () => {
+export const Game = ({ score, setScore }: {
+  score: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+}) => {
   const [tiles, moveLeft, moveRight, moveUp, moveDown] = useGame();
 
   const handleKeyDown = (e: KeyboardEvent) => {
@@ -45,7 +48,7 @@ export const Game = () => {
     <UI.Box sx={{
       // bgcolor: 'red'
     }}>
-      <Board tiles={tiles} tileCountPerRow={tileCount} />
+      <Board tiles={tiles} tileCountPerRow={tileCount} score={score} setScore={setScore} />
     </UI.Box>
   );
 };
