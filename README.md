@@ -2,10 +2,13 @@
 **2021학년도 2학기 졸업작품**
 
 
-**사용 언어**
+**개발 환경**
  - NEXT.js
  - React
  - Typescript
+ - express
+ - node.js
+ - Material-Ui
 
 **Develop**
 - `npm run client `
