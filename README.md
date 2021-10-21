@@ -9,5 +9,8 @@
 
 **Develop**
 - `npm run client `
-- localhost:8084
+  - localhost:8084
+
+- `npm run server `
+  - localhost:8000
 
