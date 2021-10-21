@@ -1,4 +1,3 @@
-
 import * as UI from '@mui/material'
 import { useEffect, useRef, useState } from "react"
 import fetcher from "../../fetcher"
@@ -14,8 +13,6 @@ const Score = ({ score }) => {
         getMessages()
     }, []);
 
-
-
     const onCreate = async (nickname) => {
         const newScore = await fetcher('post', '/scores', { nickname, score });
         setScores(scores => [newScore, ...scores])
@@ -28,7 +25,7 @@ const Score = ({ score }) => {
         e.stopPropagation()
         const nickname = nicknameRef.current.value
         nicknameRef.current.value = ''
-        onCreate(nickname, 10)
+        onCreate(nickname)
     }
 
 
@@ -39,7 +36,9 @@ const Score = ({ score }) => {
             boxSizing: 'border-box'
         }}>
             <UI.Box sx={{
+                zIndex: 100,
                 '& textArea': {
+                    zIndex: 200,
                     fontSize: 20,
                     width: 150,
                     height: 25,
@@ -77,7 +76,9 @@ const Score = ({ score }) => {
                     &nbsp;
                     &nbsp;
                     {/* <button type="submit" onClick={onSubmit}>등록</button> */}
-                    <UI.Button onClick={onSubmit}>등록</UI.Button>
+                    <UI.Button onClick={onSubmit} sx={{
+                        zIndex: 500,
+                    }}>등록</UI.Button>
                 </form>
             </UI.Box>
             <UI.Box sx={{

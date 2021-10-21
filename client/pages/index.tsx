@@ -11,6 +11,7 @@ const Home = () => {
     const [date, setDate] = useState<Date>(new Date());
     const handleRestart = () => {
         setDate(new Date());
+        setScore(-2);
     };
 
     const [score, setScore] = useState<number>(-2);
@@ -63,6 +64,7 @@ const Home = () => {
                                 mb: 3,
                             }}>2048 게임</UI.Typography>
                             <UI.Button onClick={handleRestart} sx={{
+                                zIndex: 500,
                                 bgcolor: '#776e65 !important',
                                 color: '#fff !important'
                             }}>재시작</UI.Button>
